@@ -297,7 +297,7 @@
             "pending_revalidation",
             "unknown"
           ],
-          "description": "Current freshness state. `expired` remains a verifier-level check based on `consumption_conditions.expires_at`; this schema does not compare dates."
+          "description": "Issuer-reported freshness state. `expired` may be asserted by the issuer, but verifiers should independently check `consumption_conditions.expires_at`; this schema does not compare dates."
         },
         "superseded": {
           "type": "boolean"
