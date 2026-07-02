@@ -5,8 +5,8 @@
   "decision_type": "vendor_assurance_decision",
   "decision_timestamp": "2026-06-12T16:20:00Z",
   "issuer": {
-    "organization_id": "enterprise-procurement-example",
-    "system_id": "vendor-assurance-workbench"
+    "organization_id": "issuer-example",
+    "system_id": "vendor-assurance-system"
   },
   "authority": {
     "human_reviewer_role": "third-party-risk-manager",
@@ -30,7 +30,7 @@
   },
   "evidence": {
     "evidence_commitment_type": "reference",
-    "evidence_location": "internal-vendor-file-archive",
+    "evidence_location": "issuer-retained-evidence-archive",
     "selective_disclosure_available": true
   },
   "policy_basis": [
@@ -52,7 +52,7 @@
       "internal-audit"
     ],
     "permitted_purposes": [
-      "vendor-approval",
+      "procurement-review",
       "governance-review"
     ],
     "expires_at": "2026-12-31T23:59:59Z"
@@ -66,6 +66,6 @@
     "signature_type": "none",
     "issuer_key_reference": "none",
     "conformance_profile": "pder_v0_1_minimal",
-    "verifier_endpoint": "https://enterprise-procurement-example.invalid/verify/pder"
+    "verifier_endpoint": "https://verify.issuer-example.invalid/pder"
   }
 }

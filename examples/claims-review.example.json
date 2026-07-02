@@ -5,8 +5,8 @@
   "decision_type": "claims_review",
   "decision_timestamp": "2026-04-16T09:45:00Z",
   "issuer": {
-    "organization_id": "primary-insurer-example",
-    "system_id": "claims-adjudication-gateway"
+    "organization_id": "issuer-example",
+    "system_id": "claims-review-system"
   },
   "authority": {
     "human_reviewer_role": "claims-approver",
@@ -30,7 +30,7 @@
   },
   "evidence": {
     "evidence_commitment_type": "attestation",
-    "evidence_location": "retained-by-primary-insurer",
+    "evidence_location": "retained-by-issuer",
     "selective_disclosure_available": true
   },
   "policy_basis": [
@@ -40,7 +40,7 @@
       "policy_type": "coverage_policy"
     },
     {
-      "policy_id": "reinsurance-reporting-protocol",
+      "policy_id": "counterparty-review-protocol",
       "policy_version": "1.0",
       "policy_type": "contractual_reporting"
     }
@@ -53,7 +53,7 @@
   },
   "consumption_conditions": {
     "permitted_relying_parties": [
-      "reinsurer-example",
+      "counterparty-example",
       "claims-auditor-example"
     ],
     "permitted_purposes": [
@@ -71,6 +71,6 @@
     "signature_type": "x509-cms",
     "issuer_key_reference": "claims-pki-leaf-2026",
     "conformance_profile": "pder_v0_1_minimal",
-    "verifier_endpoint": "https://verify.primary-insurer-example.invalid/pder"
+    "verifier_endpoint": "https://verify.issuer-example.invalid/pder"
   }
 }

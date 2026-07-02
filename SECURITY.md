@@ -15,8 +15,8 @@ In scope are concerns such as:
 - privacy leakage
 - malicious conformance claims
 
-Report concerns to **security@example.com**.
+Security contact: TO_BE_REPLACED_BEFORE_BROAD_RELEASE
 
-**Placeholder notice:** `security@example.com` is a placeholder address and should be replaced before broad release.
+This placeholder must be replaced with a monitored security reporting channel before broad public circulation.
 
 Please include a concise description of the issue, affected files or record elements, potential impact, and any suggested mitigation.

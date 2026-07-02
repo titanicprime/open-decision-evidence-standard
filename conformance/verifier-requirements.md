@@ -1,5 +1,7 @@
 # Verifier Requirements
 
+Schema validity means the record conforms to the base JSON structure. Profile conformance means the record satisfies a named conformance profile such as `pder_v0_1_minimal`. Verifier acceptance means the record is acceptable for a specific relying party, purpose, time, freshness state, and consumption condition.
+
 A conceptual verifier for PDER v0.1 should:
 
 1. parse the record;
@@ -13,5 +15,9 @@ A conceptual verifier for PDER v0.1 should:
 9. check the permitted purpose;
 10. check any required conformance profile; and
 11. return pass/fail with reasons.
+
+A record may be schema-valid and still fail verifier acceptance because it is expired, revoked, stale, outside the permitted purpose, outside the permitted relying party, or otherwise unsuitable for reliance.
+
+Schema validation checks structure. It does not establish that the underlying decision is correct, lawful, complete, or suitable for reliance.
 
 This repository does not provide production verifier code. The intent is to describe expected verifier behavior for an open record format.

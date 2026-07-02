@@ -12,3 +12,5 @@ It expects a record that:
 - includes consumption conditions;
 - includes freshness information; and
 - includes verification metadata or an explicit `none` placeholder.
+
+Schema validity checks structure only. A record that validates against the base schema may still fail this profile or a verifier's acceptance checks.
