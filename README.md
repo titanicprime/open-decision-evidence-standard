@@ -9,6 +9,10 @@
 - **Purpose:** Open, vendor-neutral record format for portable decision evidence in AI-mediated and cross-boundary decisions
 - **Note:** This is not a product announcement
 
+> Decisions travel. Evidence usually does not. ODES defines the portable decision-evidence record for that missing layer.
+>
+> Coordinates, not conclusions.
+
 ## Version note
 
 The current machine-readable schema is `pder-v0.1`. The v0.2 narrative draft expands the explanatory specification text and informative related-work review but does not introduce a schema-breaking change.
@@ -17,19 +21,25 @@ A future schema-breaking update should be versioned separately.
 
 ## Summary
 
-The Open Decision Evidence Standard is a discussion draft for a portable decision evidence record with integrity and verification metadata that can travel with, or alongside, a decision outcome.
+The Open Decision Evidence Standard is a discussion draft for a vendor-neutral, portable decision-evidence record format for AI-influenced decisions that cross organizational, system, or jurisdictional boundaries.
 
-The draft addresses a recurring cross-boundary problem: decisions move across organizations, systems, and jurisdictions, but the evidence needed to understand and rely on those decisions usually does not. The proposed record format is intended to make decision evidence more portable without requiring confidential source data to move, without requiring shared infrastructure, and without requiring counterparties to join a proprietary trust network.
+It gives decisions a structured evidence container: authority, machine role, human disposition, model state, policy basis, evidence commitments, freshness, revocation, and consumption conditions.
+
+The goal is not to force a conclusion. The goal is to carry coordinates. A relying party can evaluate the record under its own rules without requiring shared infrastructure, proprietary trust networks, or disclosure of confidential source data.
 
 A good decision evidence record should carry coordinates, not conclusions.
 
 ## What This Is
 
-This repository contains a candidate standard for an open, vendor-neutral, freely implementable record format for portable decision evidence in AI-mediated and cross-boundary decisions.
+This repository contains a candidate standard for an open, vendor-neutral, freely implementable portable decision-evidence record. ODES is intentionally minimal, but not simplistic. It does not try to govern all of AI. It defines one open interoperability object: the portable decision-evidence record.
+
+That record lets human, machine, and hybrid decisions carry structured governance metadata across boundaries without forcing raw data disclosure, shared infrastructure, shared policy planes, shared model internals, or proprietary trust networks.
+
+ODES treats decisions as governed artifacts rather than bare outcomes: when a decision crosses a boundary, it should carry enough governance context for another party to evaluate it.
 
 A portable decision evidence record is meant to answer:
 
-> What was decided, by whom, under what authority, using what human and machine roles, against what evidence and rules, under what conditions, and with what current validity status?
+> What was decided, who or what participated, under what authority, with what machine role and human disposition, against what evidence and policy basis, under what model state, and under what freshness, revocation, and consumption conditions?
 
 The repository includes a discussion-draft schema, field documentation, examples, conformance materials, and profiles for different implementation contexts.
 
@@ -41,21 +51,30 @@ This is not:
 - a proprietary trust network;
 - a data lake;
 - a shared ledger by default;
+- a blockchain requirement;
 - a universal workflow system;
 - a model registry;
 - a policy management platform;
-- a replacement for ISO, NIST, SOC, audit, legal review, GRC, or sector-specific standards;
+- a replacement for ISO, NIST, SOC, audit, legal review, GRC, AIBOMs, model passports, provenance systems, or sector-specific standards;
 - a requirement that counterparties expose confidential data to one another;
+- a requirement that raw evidence be disclosed;
 - a certification that any decision is correct;
+- a proof that any decision was correct, lawful, complete, fair, or suitable for reliance;
+- a compliance guarantee;
+- a claim that any commercial platform is the standard itself;
 - or a claim that portable records eliminate misuse, fraud, regulatory risk, or governance failure.
+
+ODES records structured evidence about how a decision was represented as having been made. It does not prove that the decision was correct, lawful, complete, fair, or suitable for reliance.
 
 ## ODES as the missing interoperability primitive
 
-ODES is not a replacement for ISO/NIST governance frameworks, AIBOMs, model passports, audit logs, provenance frameworks, or commercial execution platforms. It addresses a narrower object: the portable decision evidence record.
+ODES formalizes a portable governance object that current AI governance, AIBOM, model documentation, provenance, and audit systems generally do not center as their primary unit of interoperability: the decision-evidence record.
 
 AIBOMs describe what the AI system is: its components, dependencies, lineage, lifecycle context, and supply-chain properties. ODES describes what the AI-influenced decision was: who or what participated, under what authority, with what human disposition, under what model state, against what evidence and policy basis, and under what consumption conditions.
 
-The intended role of ODES is to help decision-level evidence travel across organizational, system, and jurisdictional boundaries without forcing counterparties into the same platform or requiring disclosure of underlying confidential data.
+ODES does not replace the adjacent stack. It gives those systems a decision-level object to emit or consume at the boundary.
+
+The intended role of ODES is to help decision-level evidence travel across organizational, system, and jurisdictional boundaries without forcing counterparties into the same platform, proprietary trust network, or shared infrastructure, and without requiring disclosure of underlying confidential data.
 
 ## Why This Should Be Open
 
@@ -71,13 +90,28 @@ Internal governance remains necessary, but internal governance alone is not enou
 
 ## Core Design Principles
 
-1. **Record, not copy**
-2. **Supports verification without blind trust in the issuer**
-3. **Portable across boundaries**
-4. **Human and machine roles must be distinguishable**
-5. **Model state matters**
-6. **Authority must be time-bound**
-7. **The record should fail closed**
+1. **Record, not copy** — the record carries commitments, references, attestations, and verification metadata rather than requiring raw evidence to move.
+2. **Coordinates, not conclusions** — the record gives relying parties structured information for evaluation; it does not force them to accept a decision.
+3. **Portable across boundaries** — the record is usable across organizations, systems, and jurisdictions without requiring shared infrastructure or a proprietary trust network.
+4. **Human and machine roles must be distinguishable** — machine assistance, recommendation, execution, escalation, human review, modification, override, and non-review must not collapse into one approval label.
+5. **Model state matters** — relevant model version, runtime conditions, tool access, and configuration should be captured or referenced.
+6. **Authority must be time-bound** — authority should be tied to a basis, actor, system, and validity window.
+7. **Freshness and revocation are first-class** — expiration, supersession, revocation, stale status, and revalidation matter.
+8. **Fail closed where required conditions are missing** — records should not silently pass when verification, authority, freshness, or consumption conditions cannot be evaluated.
+
+## What ODES makes possible
+
+ODES makes evidence referenceable, verifiable, and bounded. A record can carry hashes, references, attestations, verification metadata, policy identifiers, consumption conditions, and status information while sensitive underlying evidence remains with the issuer.
+
+This separation lets a receiving party evaluate a decision without forcing both sides onto one platform, one ledger, one cloud, one policy engine, one model registry, or one proprietary trust network.
+
+| Without ODES | With ODES |
+| --- | --- |
+| The outcome travels, but evidence stays behind. | The decision can travel with a structured evidence record. |
+| The receiver may blindly trust the issuer or duplicate the review. | The receiver can evaluate authority, evidence commitments, freshness, and conditions. |
+| Human review and machine reliance may blur together. | Human disposition and machine role are separated. |
+| Model state may be reconstructed later, if at all. | Model state and runtime coordinates can be captured at decision time. |
+| Validity may be ambiguous after policy, evidence, or authority changes. | Freshness, expiration, revocation, and supersession become explicit record semantics. |
 
 ## Minimum Expressible Field Categories
 
@@ -94,7 +128,7 @@ The table below describes conceptual field categories. The normative draft JSON 
 | Model state | Model identity, version, and runtime coordinates relevant to review. |
 | Human disposition | Human review status and disposition in relation to machine output. |
 | Machine reliance level | Approximate degree of machine reliance in the human decision path. |
-| Evidence commitment | Hash, reference, attestation, proof, or explicit absence of supporting evidence commitment. |
+| Evidence commitment | Hash, reference, attestation, other verification material, or explicit absence of supporting evidence commitment. |
 | Policy basis | Rules, controls, contracts, or standards used in the decision. |
 | Risk coordinates | Risk tier, jurisdiction, and restricted or prohibited use flags. |
 | Consumption conditions | Who may assess the record for a stated purpose, under stated conditions, and until when. |
