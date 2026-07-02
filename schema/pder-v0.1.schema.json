@@ -1,0 +1,305 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-decision-evidence-standard.example/schema/pder-v0.1.schema.json",
+  "title": "Portable Decision Evidence Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "schema_version",
+    "decision_id",
+    "decision_type",
+    "decision_timestamp",
+    "issuer",
+    "authority",
+    "machine_role",
+    "human_disposition",
+    "evidence",
+    "policy_basis",
+    "risk_coordinates",
+    "consumption_conditions",
+    "status",
+    "verification"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "portable_decision_evidence_record",
+      "description": "Identifies the document as a Portable Decision Evidence Record."
+    },
+    "schema_version": {
+      "enum": [
+        "0.1"
+      ],
+      "description": "Schema version for this discussion draft."
+    },
+    "decision_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Issuer-assigned identifier for the decision."
+    },
+    "decision_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Category of decision represented by the record."
+    },
+    "decision_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the decision was made."
+    },
+    "issuer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "organization_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "system_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "description": "Issuer identity information."
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "human_reviewer_role": {
+          "type": "string"
+        },
+        "authority_basis": {
+          "type": "string"
+        },
+        "authority_valid_at_decision": {
+          "type": "boolean"
+        },
+        "authority_valid_from": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "authority_valid_until": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "description": "Authority information in effect for the decision."
+    },
+    "machine_role": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ai_used": {
+          "type": "boolean"
+        },
+        "role": {
+          "enum": [
+            "none",
+            "retrieval",
+            "recommendation",
+            "assistance",
+            "execution",
+            "escalation",
+            "generation",
+            "unknown"
+          ]
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "model_version": {
+          "type": "string"
+        },
+        "tool_access_profile": {
+          "type": "string"
+        },
+        "runtime_profile": {
+          "type": "string"
+        }
+      },
+      "description": "Machine participation and model state coordinates."
+    },
+    "human_disposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "accepted",
+            "modified",
+            "rejected",
+            "overridden",
+            "escalated",
+            "not_reviewed",
+            "reviewed_under_constraint",
+            "unknown"
+          ]
+        },
+        "review_substantiveness": {
+          "enum": [
+            "substantive",
+            "nominal",
+            "constrained",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "machine_reliance_level": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "unknown"
+          ]
+        }
+      },
+      "description": "How a human reviewed, adopted, or rejected machine output."
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "evidence_commitment_type": {
+          "enum": [
+            "hash",
+            "reference",
+            "attestation",
+            "proof",
+            "none",
+            "unknown"
+          ]
+        },
+        "evidence_hash": {
+          "type": "string"
+        },
+        "evidence_location": {
+          "type": "string"
+        },
+        "selective_disclosure_available": {
+          "type": "boolean"
+        }
+      },
+      "description": "Evidence commitment or disclosure coordinates."
+    },
+    "policy_basis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "policy_id": {
+            "type": "string"
+          },
+          "policy_version": {
+            "type": "string"
+          },
+          "policy_type": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Policy, rule, contract, or control references applied."
+    },
+    "risk_coordinates": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "risk_tier": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical",
+            "unknown"
+          ]
+        },
+        "jurisdiction": {
+          "type": "string"
+        },
+        "restricted_use_flag": {
+          "type": "boolean"
+        },
+        "prohibited_use_flag": {
+          "type": "boolean"
+        }
+      },
+      "description": "High-level risk and jurisdiction coordinates."
+    },
+    "consumption_conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permitted_relying_parties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "permitted_purposes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "description": "Conditions under which the record may be relied upon."
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "freshness": {
+          "enum": [
+            "current",
+            "stale",
+            "expired",
+            "superseded",
+            "revoked",
+            "pending_revalidation",
+            "unknown"
+          ]
+        },
+        "superseded": {
+          "type": "boolean"
+        },
+        "revoked": {
+          "type": "boolean"
+        },
+        "superseded_by": {
+          "type": "string"
+        },
+        "revoked_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "description": "Current validity status of the record."
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "signature_type": {
+          "type": "string"
+        },
+        "issuer_key_reference": {
+          "type": "string"
+        },
+        "conformance_profile": {
+          "type": "string"
+        },
+        "verifier_endpoint": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "description": "Verification and conformance information."
+    }
+  }
+}

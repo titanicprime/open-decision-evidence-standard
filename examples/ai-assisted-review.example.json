@@ -1,0 +1,72 @@
+{
+  "record_type": "portable_decision_evidence_record",
+  "schema_version": "0.1",
+  "decision_id": "air-2026-07-001",
+  "decision_type": "ai_assisted_review",
+  "decision_timestamp": "2026-07-01T14:30:00Z",
+  "issuer": {
+    "organization_id": "issuer.example.org",
+    "system_id": "review-orchestrator"
+  },
+  "authority": {
+    "human_reviewer_role": "senior_case_reviewer",
+    "authority_basis": "internal-review-policy-v3",
+    "authority_valid_at_decision": true,
+    "authority_valid_from": "2026-01-01T00:00:00Z",
+    "authority_valid_until": "2026-12-31T23:59:59Z"
+  },
+  "machine_role": {
+    "ai_used": true,
+    "role": "recommendation",
+    "model_id": "triage-model",
+    "model_version": "2026.06",
+    "tool_access_profile": "read-only-case-summary",
+    "runtime_profile": "standard-review"
+  },
+  "human_disposition": {
+    "status": "modified",
+    "review_substantiveness": "substantive",
+    "machine_reliance_level": "medium"
+  },
+  "evidence": {
+    "evidence_commitment_type": "hash",
+    "evidence_hash": "sha256:2ff7f5f84b59278376d87d583a4f2ab9e6268ac1a7d4c7adf2dbb28f6eac8800",
+    "evidence_location": "retained-by-issuer",
+    "selective_disclosure_available": true
+  },
+  "policy_basis": [
+    {
+      "policy_id": "review-policy",
+      "policy_version": "3.2",
+      "policy_type": "internal_policy"
+    }
+  ],
+  "risk_coordinates": {
+    "risk_tier": "medium",
+    "jurisdiction": "multi-jurisdiction",
+    "restricted_use_flag": false,
+    "prohibited_use_flag": false
+  },
+  "consumption_conditions": {
+    "permitted_relying_parties": [
+      "counterparty-a",
+      "auditor-b"
+    ],
+    "permitted_purposes": [
+      "reliance-review",
+      "audit"
+    ],
+    "expires_at": "2026-09-30T00:00:00Z"
+  },
+  "status": {
+    "freshness": "current",
+    "superseded": false,
+    "revoked": false
+  },
+  "verification": {
+    "signature_type": "jws-detached",
+    "issuer_key_reference": "did:web:issuer.example.org#keys-1",
+    "conformance_profile": "pder_v0_1_minimal",
+    "verifier_endpoint": "https://issuer.example.org/verifiers/pder/v0.1"
+  }
+}

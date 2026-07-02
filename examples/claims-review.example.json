@@ -1,0 +1,76 @@
+{
+  "record_type": "portable_decision_evidence_record",
+  "schema_version": "0.1",
+  "decision_id": "claim-2026-04-8842",
+  "decision_type": "claims_review",
+  "decision_timestamp": "2026-04-16T09:45:00Z",
+  "issuer": {
+    "organization_id": "primary-insurer-example",
+    "system_id": "claims-adjudication-gateway"
+  },
+  "authority": {
+    "human_reviewer_role": "claims-approver",
+    "authority_basis": "delegated-claims-authority-schedule",
+    "authority_valid_at_decision": true,
+    "authority_valid_from": "2026-01-01T00:00:00Z",
+    "authority_valid_until": "2026-12-31T23:59:59Z"
+  },
+  "machine_role": {
+    "ai_used": true,
+    "role": "assistance",
+    "model_id": "loss-assessment-model",
+    "model_version": "2026.03",
+    "tool_access_profile": "claims-summary-only",
+    "runtime_profile": "claims-review-profile-a"
+  },
+  "human_disposition": {
+    "status": "accepted",
+    "review_substantiveness": "substantive",
+    "machine_reliance_level": "low"
+  },
+  "evidence": {
+    "evidence_commitment_type": "attestation",
+    "evidence_location": "retained-by-primary-insurer",
+    "selective_disclosure_available": true
+  },
+  "policy_basis": [
+    {
+      "policy_id": "coverage-rulebook",
+      "policy_version": "2026-Q2",
+      "policy_type": "coverage_policy"
+    },
+    {
+      "policy_id": "reinsurance-reporting-protocol",
+      "policy_version": "1.0",
+      "policy_type": "contractual_reporting"
+    }
+  ],
+  "risk_coordinates": {
+    "risk_tier": "high",
+    "jurisdiction": "cross-border-insurance",
+    "restricted_use_flag": true,
+    "prohibited_use_flag": false
+  },
+  "consumption_conditions": {
+    "permitted_relying_parties": [
+      "reinsurer-example",
+      "claims-auditor-example"
+    ],
+    "permitted_purposes": [
+      "reserve-validation",
+      "claim-reliance-review"
+    ],
+    "expires_at": "2026-10-31T00:00:00Z"
+  },
+  "status": {
+    "freshness": "current",
+    "superseded": false,
+    "revoked": false
+  },
+  "verification": {
+    "signature_type": "x509-cms",
+    "issuer_key_reference": "claims-pki-leaf-2026",
+    "conformance_profile": "pder_v0_1_minimal",
+    "verifier_endpoint": "https://verify.primary-insurer-example.invalid/pder"
+  }
+}

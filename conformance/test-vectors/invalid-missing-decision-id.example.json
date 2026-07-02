@@ -1,0 +1,54 @@
+{
+  "record_type": "portable_decision_evidence_record",
+  "schema_version": "0.1",
+  "decision_type": "decision_notice",
+  "decision_timestamp": "2026-07-01T00:00:00Z",
+  "issuer": {
+    "organization_id": "example-issuer",
+    "system_id": "example-system"
+  },
+  "authority": {
+    "human_reviewer_role": "reviewer",
+    "authority_basis": "internal-delegation",
+    "authority_valid_at_decision": true
+  },
+  "machine_role": {
+    "ai_used": false,
+    "role": "none"
+  },
+  "human_disposition": {
+    "status": "accepted",
+    "review_substantiveness": "not_applicable",
+    "machine_reliance_level": "none"
+  },
+  "evidence": {
+    "evidence_commitment_type": "none",
+    "selective_disclosure_available": false
+  },
+  "policy_basis": [],
+  "risk_coordinates": {
+    "risk_tier": "unknown",
+    "jurisdiction": "unspecified",
+    "restricted_use_flag": false,
+    "prohibited_use_flag": false
+  },
+  "consumption_conditions": {
+    "permitted_relying_parties": [
+      "any-authorized-relying-party"
+    ],
+    "permitted_purposes": [
+      "reliance-review"
+    ],
+    "expires_at": "2026-12-31T23:59:59Z"
+  },
+  "status": {
+    "freshness": "current",
+    "superseded": false,
+    "revoked": false
+  },
+  "verification": {
+    "signature_type": "none",
+    "issuer_key_reference": "none",
+    "conformance_profile": "pder_v0_1_minimal"
+  }
+}
