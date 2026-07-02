@@ -60,7 +60,10 @@
           "minLength": 1
         }
       },
-      "description": "Issuer identity information."
+      "description": "Issuer identity information.",
+      "required": [
+        "organization_id"
+      ]
     },
     "authority": {
       "type": "object",
@@ -84,7 +87,11 @@
           "format": "date-time"
         }
       },
-      "description": "Authority information in effect for the decision."
+      "description": "Authority information in effect for the decision.",
+      "required": [
+        "authority_basis",
+        "authority_valid_at_decision"
+      ]
     },
     "machine_role": {
       "type": "object",
@@ -118,7 +125,11 @@
           "type": "string"
         }
       },
-      "description": "Machine participation and model state coordinates."
+      "description": "Machine participation and model state coordinates.",
+      "required": [
+        "ai_used",
+        "role"
+      ]
     },
     "human_disposition": {
       "type": "object",
@@ -155,7 +166,12 @@
           ]
         }
       },
-      "description": "How a human reviewed, adopted, or rejected machine output."
+      "description": "How a human reviewed, adopted, or rejected machine output.",
+      "required": [
+        "status",
+        "review_substantiveness",
+        "machine_reliance_level"
+      ]
     },
     "evidence": {
       "type": "object",
@@ -181,7 +197,11 @@
           "type": "boolean"
         }
       },
-      "description": "Evidence commitment or disclosure coordinates."
+      "description": "Evidence commitment or disclosure coordinates.",
+      "required": [
+        "evidence_commitment_type",
+        "selective_disclosure_available"
+      ]
     },
     "policy_basis": {
       "type": "array",
@@ -198,9 +218,13 @@
           "policy_type": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "policy_id"
+        ]
       },
-      "description": "Policy, rule, contract, or control references applied."
+      "description": "Policy, rule, contract, or control references applied.",
+      "minItems": 1
     },
     "risk_coordinates": {
       "type": "object",
@@ -225,7 +249,11 @@
           "type": "boolean"
         }
       },
-      "description": "High-level risk and jurisdiction coordinates."
+      "description": "High-level risk and jurisdiction coordinates.",
+      "required": [
+        "risk_tier",
+        "jurisdiction"
+      ]
     },
     "consumption_conditions": {
       "type": "object",
@@ -241,14 +269,19 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "minItems": 1
         },
         "expires_at": {
           "type": "string",
           "format": "date-time"
         }
       },
-      "description": "Conditions under which the record may be relied upon."
+      "description": "Conditions under which the record may be relied upon.",
+      "required": [
+        "permitted_purposes",
+        "expires_at"
+      ]
     },
     "status": {
       "type": "object",
@@ -263,7 +296,8 @@
             "revoked",
             "pending_revalidation",
             "unknown"
-          ]
+          ],
+          "description": "Current freshness state. `expired` remains a verifier-level check based on `consumption_conditions.expires_at`; this schema does not compare dates."
         },
         "superseded": {
           "type": "boolean"
@@ -279,7 +313,12 @@
           "format": "date-time"
         }
       },
-      "description": "Current validity status of the record."
+      "description": "Current validity status of the record.",
+      "required": [
+        "freshness",
+        "superseded",
+        "revoked"
+      ]
     },
     "verification": {
       "type": "object",
@@ -299,7 +338,151 @@
           "format": "uri"
         }
       },
-      "description": "Verification and conformance information."
+      "description": "Verification and conformance information.",
+      "required": [
+        "signature_type",
+        "issuer_key_reference",
+        "conformance_profile"
+      ]
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "evidence": {
+            "properties": {
+              "evidence_commitment_type": {
+                "const": "hash"
+              }
+            },
+            "required": [
+              "evidence_commitment_type"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "evidence": {
+            "required": [
+              "evidence_hash"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "superseded": {
+                "const": true
+              }
+            },
+            "required": [
+              "superseded"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "required": [
+              "superseded_by"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "revoked": {
+                "const": true
+              }
+            },
+            "required": [
+              "revoked"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "required": [
+              "revoked_at"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "freshness": {
+                "const": "revoked"
+              }
+            },
+            "required": [
+              "freshness"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "properties": {
+              "revoked": {
+                "const": true
+              }
+            },
+            "required": [
+              "revoked",
+              "revoked_at"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "properties": {
+              "freshness": {
+                "const": "superseded"
+              }
+            },
+            "required": [
+              "freshness"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "properties": {
+              "superseded": {
+                "const": true
+              }
+            },
+            "required": [
+              "superseded",
+              "superseded_by"
+            ]
+          }
+        }
+      }
+    }
+  ]
 }

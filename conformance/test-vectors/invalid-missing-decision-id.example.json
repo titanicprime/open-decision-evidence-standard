@@ -25,7 +25,13 @@
     "evidence_commitment_type": "none",
     "selective_disclosure_available": false
   },
-  "policy_basis": [],
+  "policy_basis": [
+    {
+      "policy_id": "baseline-policy",
+      "policy_version": "1.0",
+      "policy_type": "internal_policy"
+    }
+  ],
   "risk_coordinates": {
     "risk_tier": "unknown",
     "jurisdiction": "unspecified",
