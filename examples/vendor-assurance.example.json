@@ -1,0 +1,71 @@
+{
+  "record_type": "portable_decision_evidence_record",
+  "schema_version": "0.1",
+  "decision_id": "vendor-ai-2026-019",
+  "decision_type": "vendor_assurance_decision",
+  "decision_timestamp": "2026-06-12T16:20:00Z",
+  "issuer": {
+    "organization_id": "enterprise-procurement-example",
+    "system_id": "vendor-assurance-workbench"
+  },
+  "authority": {
+    "human_reviewer_role": "third-party-risk-manager",
+    "authority_basis": "vendor-governance-charter",
+    "authority_valid_at_decision": true,
+    "authority_valid_from": "2026-01-01T00:00:00Z",
+    "authority_valid_until": "2027-01-01T00:00:00Z"
+  },
+  "machine_role": {
+    "ai_used": true,
+    "role": "retrieval",
+    "model_id": "assurance-evidence-index",
+    "model_version": "2026.05",
+    "tool_access_profile": "vendor-package-read",
+    "runtime_profile": "governance-review"
+  },
+  "human_disposition": {
+    "status": "accepted",
+    "review_substantiveness": "substantive",
+    "machine_reliance_level": "medium"
+  },
+  "evidence": {
+    "evidence_commitment_type": "reference",
+    "evidence_location": "internal-vendor-file-archive",
+    "selective_disclosure_available": true
+  },
+  "policy_basis": [
+    {
+      "policy_id": "ai-vendor-assurance-standard",
+      "policy_version": "2026.1",
+      "policy_type": "governance_standard"
+    }
+  ],
+  "risk_coordinates": {
+    "risk_tier": "medium",
+    "jurisdiction": "enterprise-operations",
+    "restricted_use_flag": true,
+    "prohibited_use_flag": false
+  },
+  "consumption_conditions": {
+    "permitted_relying_parties": [
+      "internal-procurement",
+      "internal-audit"
+    ],
+    "permitted_purposes": [
+      "vendor-approval",
+      "governance-review"
+    ],
+    "expires_at": "2026-12-31T23:59:59Z"
+  },
+  "status": {
+    "freshness": "current",
+    "superseded": false,
+    "revoked": false
+  },
+  "verification": {
+    "signature_type": "none",
+    "issuer_key_reference": "none",
+    "conformance_profile": "pder_v0_1_minimal",
+    "verifier_endpoint": "https://enterprise-procurement-example.invalid/verify/pder"
+  }
+}
