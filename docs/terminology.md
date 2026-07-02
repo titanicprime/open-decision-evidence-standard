@@ -1,7 +1,9 @@
 # Terminology
 
+- **AIBOM**: An AI bill of materials describing what an AI system is, including components, dependencies, lineage, lifecycle context, and supply-chain properties.
 - **decision evidence**: Information that helps explain and evaluate how a decision was made and whether it may be relied upon.
 - **portable decision evidence record**: A machine-readable record that carries decision evidence coordinates across organizational, system, or jurisdictional boundaries.
+- **related-work distinction**: A positioning note that neighboring governance, provenance, and system-description artifacts solve different problems from portable decision evidence records.
 - **issuer**: The organization or system that creates and signs or otherwise publishes the record.
 - **relying party**: A party that receives the record and determines whether and how to rely on it.
 - **decision subject**: The person, entity, transaction, document, case, or process affected by the decision.
@@ -21,3 +23,5 @@
 - **conformance profile**: A named set of additional requirements layered onto the base schema for a given use case or sector.
 - **selective disclosure**: A pattern in which different relying parties receive different subsets or proofs of underlying evidence based on need and authorization.
 - **fail closed**: A design posture in which unmet requirements result in rejection or revalidation rather than silent acceptance.
+
+AIBOMs describe what the AI system is. ODES describes the decision evidence associated with a particular AI-influenced decision.

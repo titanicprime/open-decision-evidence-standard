@@ -1,11 +1,19 @@
 # Open Decision Evidence Standard
 
-- **Status:** Discussion Draft v0.1
+- **Status:** Discussion Draft v0.2 narrative; schema reference `pder-v0.1`
 - **Repository:** `open-decision-evidence-standard`
+- **Public project page:** https://opendecisionevidence.org
+- **Repository:** https://github.com/titanicprime/open-decision-evidence-standard
 - **License:** Apache License 2.0
 - **Initial editorial maintainer:** Cognous, pending neutral governance transition
 - **Purpose:** Open, vendor-neutral record format for portable decision evidence in AI-mediated and cross-boundary decisions
 - **Note:** This is not a product announcement
+
+## Version note
+
+The current machine-readable schema is `pder-v0.1`. The v0.2 narrative draft expands the explanatory specification text and informative related-work review but does not introduce a schema-breaking change.
+
+A future schema-breaking update should be versioned separately.
 
 ## Summary
 
@@ -41,11 +49,19 @@ This is not:
 - a certification that any decision is correct;
 - or a claim that portable records eliminate misuse, fraud, regulatory risk, or governance failure.
 
+## ODES as the missing interoperability primitive
+
+ODES is not a replacement for ISO/NIST governance frameworks, AIBOMs, model passports, audit logs, provenance frameworks, or commercial execution platforms. It addresses a narrower object: the portable decision evidence record.
+
+AIBOMs describe what the AI system is: its components, dependencies, lineage, lifecycle context, and supply-chain properties. ODES describes what the AI-influenced decision was: who or what participated, under what authority, with what human disposition, under what model state, against what evidence and policy basis, and under what consumption conditions.
+
+The intended role of ODES is to help decision-level evidence travel across organizational, system, and jurisdictional boundaries without forcing counterparties into the same platform or requiring disclosure of underlying confidential data.
+
 ## Why This Should Be Open
 
 A decision evidence format intended for cross-boundary use should not require trust in a single vendor or operator. Openness matters because relying parties need to inspect the format, implement it independently, test it publicly, and use it without joining a proprietary control plane.
 
-An open standard also helps preserve a clean distinction between the public record format and any commercial products that may later produce, verify, route, or govern records built on top of it.
+An open candidate standard also helps preserve a clean distinction between the public record format and any commercial products that may later produce, verify, route, or govern records built on top of it.
 
 ## Background
 
@@ -202,9 +218,9 @@ The repository is currently under initial editorial maintenance by Cognous as a 
 
 See [`GOVERNANCE.md`](GOVERNANCE.md) for the current draft governance approach.
 
-## What Would Validate the Standard
+## What Would Strengthen the Draft
 
-The standard would be strengthened by evidence that independent parties can implement it, exchange records across boundaries, validate records consistently, and use it without disclosing unnecessary confidential data.
+The draft would be strengthened by evidence that independent parties can implement it, exchange records across boundaries, validate records consistently, and use it without disclosing unnecessary confidential data.
 
 Signs of validation would include public review, independent prototypes, comments from regulated sectors, cross-organizational testing, and convergence on useful conformance profiles.
 
@@ -236,8 +252,14 @@ Comments are especially welcome on record scope, field selection, conformance re
 
 ## Disclaimer
 
-This repository is a discussion draft for an open, vendor-neutral decision evidence standard. It is not a product announcement, legal advice, compliance advice, certification, assurance, warranty, or representation that any record produced under the draft prevents misuse, fraud, error, regulatory failure, or harm. No endorsement, affiliation, or relationship with any external researcher, standards body, regulator, or institution is implied unless expressly stated.
+This repository is a discussion draft for an open, vendor-neutral candidate decision evidence standard. It is not a product announcement, legal advice, compliance advice, certification, assurance, warranty, or representation that any record produced under the draft prevents misuse, fraud, error, regulatory failure, or harm.
+
+A schema-valid or profile-conforming record does not establish that the underlying decision is correct, lawful, complete, or suitable for reliance.
+
+This draft has not been recognized, approved, adopted, or endorsed by any regulator or standards body.
+
+No endorsement, affiliation, or relationship with any external researcher, standards body, regulator, or institution is implied unless expressly stated.
 
 ## Suggested Citation
 
-*Open Decision Evidence Standard: Discussion Draft v0.1*. Cognous, July 2026. Repository: `open-decision-evidence-standard`. Apache License 2.0.
+*Open Decision Evidence Standard: Discussion Draft v0.2 narrative; schema reference `pder-v0.1`*. Cognous, July 2026. Repository: `open-decision-evidence-standard`. Apache License 2.0.
