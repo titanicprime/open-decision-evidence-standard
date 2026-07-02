@@ -6,7 +6,7 @@ This repository is maintained as a public discussion draft for the Open Decision
 
 ## Maintainer role
 
-Cognous currently acts as the initial maintainer. The maintainer role is administrative and editorial: curate issues, review pull requests, publish draft updates, and keep the repository usable for public comment.
+Cognous currently acts as the initial editorial maintainer. The maintainer role is administrative and editorial: curate issues, review pull requests, publish draft updates, and keep the repository usable for public comment.
 
 ## Standards neutrality goal
 

@@ -1,5 +1,7 @@
 # Problem Statement
 
+Draft status note: This document is part of a discussion draft for an open, vendor-neutral candidate standard. It is not a product announcement, legal advice, compliance advice, certification, assurance, or warranty.
+
 Decisions regularly cross organizational, technical, and jurisdictional boundaries. The decision outcome may travel, but the evidence needed to understand, verify, and rely on that outcome often does not.
 
 Artificial intelligence makes this problem more acute through speed, scale, model change, agentic action, and weaker human review artifacts. A receiving party may inherit the consequence of a decision without a portable account of what authority, evidence, rules, human review, or machine involvement supported it.

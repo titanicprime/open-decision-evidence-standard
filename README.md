@@ -3,13 +3,13 @@
 - **Status:** Discussion Draft v0.1
 - **Repository:** `open-decision-evidence-standard`
 - **License:** Apache License 2.0
-- **Maintainer:** Cognous, pending neutral standards governance
+- **Initial editorial maintainer:** Cognous, pending neutral governance transition
 - **Purpose:** Open, vendor-neutral record format for portable decision evidence in AI-mediated and cross-boundary decisions
 - **Note:** This is not a product announcement
 
 ## Summary
 
-The Open Decision Evidence Standard is a discussion draft for a portable, tamper-evident decision evidence record that can travel with, or alongside, a decision outcome.
+The Open Decision Evidence Standard is a discussion draft for a portable decision evidence record with integrity and verification metadata that can travel with, or alongside, a decision outcome.
 
 The draft addresses a recurring cross-boundary problem: decisions move across organizations, systems, and jurisdictions, but the evidence needed to understand and rely on those decisions usually does not. The proposed record format is intended to make decision evidence more portable without requiring confidential source data to move, without requiring shared infrastructure, and without requiring counterparties to join a proprietary trust network.
 
@@ -63,27 +63,29 @@ Internal governance remains necessary, but internal governance alone is not enou
 6. **Authority must be time-bound**
 7. **The record should fail closed**
 
-## Minimum Expressible Fields
+## Minimum Expressible Field Categories
 
-| Field | Purpose |
+The table below describes conceptual field categories. The normative draft JSON field paths are defined in `schema/pder-v0.1.schema.json` and documented in `schema/pder-v0.1-fields.md`.
+
+| Field category | Purpose |
 | --- | --- |
-| `decision_id` | Stable identifier for the decision being evidenced. |
-| `decision_type` | High-level category of decision or disposition. |
-| `decision_timestamp` | Time at which the decision was made. |
-| `issuer` | Organization and system identity for the record issuer. |
-| `authority` | Source and validity window of decision authority. |
-| `machine_role` | Whether and how AI or automation participated. |
-| `model_state` | Model identity, version, and runtime coordinates relevant to review. |
-| `human_disposition` | Human review status and disposition in relation to machine output. |
-| `reliance_level` | Approximate degree of machine reliance in the human decision path. |
-| `evidence_commitment` | Hash, reference, attestation, proof, or explicit absence of supporting evidence commitment. |
-| `policy_basis` | Rules, controls, contracts, or standards used in the decision. |
-| `risk_coordinates` | Risk tier, jurisdiction, and restricted or prohibited use flags. |
-| `consumption_conditions` | Who may rely on the record, for what purpose, and until when. |
-| `freshness_status` | Current, stale, expired, superseded, revoked, pending revalidation, or unknown status. |
-| `verification` | Signature, key reference, profile, and verifier information. |
+| Decision identifier | Stable identifier for the decision being evidenced. |
+| Decision type | High-level category of decision or disposition. |
+| Decision timestamp | Time at which the decision was made. |
+| Issuer identity | Organization and system identity for the record issuer. |
+| Authority basis and validity | Source and validity window of decision authority. |
+| Machine role | Whether and how AI or automation participated. |
+| Model state | Model identity, version, and runtime coordinates relevant to review. |
+| Human disposition | Human review status and disposition in relation to machine output. |
+| Machine reliance level | Approximate degree of machine reliance in the human decision path. |
+| Evidence commitment | Hash, reference, attestation, proof, or explicit absence of supporting evidence commitment. |
+| Policy basis | Rules, controls, contracts, or standards used in the decision. |
+| Risk coordinates | Risk tier, jurisdiction, and restricted or prohibited use flags. |
+| Consumption conditions | Who may assess the record for a stated purpose, under stated conditions, and until when. |
+| Freshness status | Current, stale, expired, superseded, revoked, pending revalidation, or unknown status. |
+| Verification metadata | Signature, key reference, profile, and verifier information. |
 
-In the v0.1 schema, the `model_state`, `reliance_level`, `evidence_commitment`, and `freshness_status` concepts are represented within the `machine_role`, `human_disposition`, `evidence`, and `status` objects.
+In the v0.1 schema, the model-state, machine-reliance-level, evidence-commitment, and freshness-status concepts are represented within the `machine_role`, `human_disposition`, `evidence`, and `status` objects.
 
 ## Illustrative Example
 
@@ -148,6 +150,8 @@ In the v0.1 schema, the `model_state`, `reliance_level`, `evidence_commitment`, 
 }
 ```
 
+Schema validation checks structure. It does not establish that the underlying decision is correct, lawful, complete, or suitable for reliance. A record may be schema-valid and still fail profile conformance, verifier acceptance, or a relying party's decision to rely.
+
 ## Candidate Use Cases
 
 - AI-assisted underwriting
@@ -194,7 +198,7 @@ See the repository directories for the current discussion-draft schema, examples
 
 ## Governance Proposal
 
-The repository is currently maintained by Cognous as a public discussion draft, with the stated goal of transitioning to neutral standards governance if the effort gains external participation and sufficient implementation interest.
+The repository is currently under initial editorial maintenance by Cognous as a public discussion draft, with the stated goal of transitioning to neutral standards governance if the effort gains external participation and sufficient implementation interest.
 
 See [`GOVERNANCE.md`](GOVERNANCE.md) for the current draft governance approach.
 

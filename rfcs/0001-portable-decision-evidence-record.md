@@ -3,8 +3,10 @@
 - **RFC number:** 0001
 - **Title:** Portable Decision Evidence Record
 - **Status:** Draft
-- **Authors:** Cognous
+- **Proposed by:** Cognous
 - **Date:** July 2026
+
+Draft status note: This document is part of a discussion draft for an open, vendor-neutral candidate standard. It is not a product announcement, legal advice, compliance advice, certification, assurance, or warranty.
 
 ## Abstract
 
@@ -34,6 +36,8 @@ Decision outcomes often cross boundaries without the supporting evidence needed 
 
 The proposed minimal record structure includes record identity, decision identity, issuer, authority, machine role, human disposition, evidence commitment, policy basis, risk coordinates, consumption conditions, current status, and verification metadata.
 
+Schema validation in this draft checks structure only. It does not establish that the underlying decision is correct, lawful, complete, or suitable for reliance.
+
 ## Open questions
 
 - Which verification profiles should be standardized first?
@@ -51,7 +55,7 @@ The record should carry coordinates, not conclusions, and should not require ful
 
 ## Conformance considerations
 
-Conformance should be profile-based. The base schema should remain modest, while profiles may raise requirements for sectors, deployment models, or assurance levels.
+Conformance should be profile-based. The base schema should remain modest, while profiles may raise requirements for sectors, deployment models, or assurance levels. A schema-valid record may still fail profile conformance, verifier acceptance, or a relying party's decision to rely.
 
 ## Next steps
 
