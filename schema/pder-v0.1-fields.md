@@ -47,8 +47,8 @@
 | `consumption_conditions.expires_at` | string (`date-time`) | Yes | States when the record expires for reliance. | Distinct from authority validity. |
 | `status` | object | Yes | Groups current validity status. | Core top-level object. |
 | `status.freshness` | enum string | Yes | States current freshness. | One of `current`, `stale`, `expired`, `superseded`, `revoked`, `pending_revalidation`, `unknown`; issuers may assert `expired`, but verifiers should independently check `consumption_conditions.expires_at`. |
-| `status.superseded` | boolean | Yes | Indicates whether a newer record replaces this one. | Must align with `superseded_by` where present. |
-| `status.revoked` | boolean | Yes | Indicates whether the record has been revoked. | Must align with `revoked_at` where present. |
+| `status.superseded` | boolean | Yes | Indicates whether a newer record replaces this one. | When `true`, schema rules require `superseded_by`. |
+| `status.revoked` | boolean | Yes | Indicates whether the record has been revoked. | When `true`, schema rules require `revoked_at`. |
 | `status.superseded_by` | string | No | Identifies the superseding record. | Optional linkage field. |
 | `status.revoked_at` | string (`date-time`) | No | States when revocation occurred. | Optional in v0.1. |
 | `verification` | object | Yes | Groups verification metadata. | Core top-level object. |
