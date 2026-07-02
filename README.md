@@ -246,6 +246,11 @@ It does not attempt to settle cryptographic profiles, sector-specific mandates, 
 
 See the repository directories for the current discussion-draft schema, examples, profiles, and conformance materials.
 
+## Related RFCs
+
+- [RFC 0003: Verifier Behavior and Reliance Boundaries](rfcs/0003-verifier-behavior-and-reliance-boundaries.md) defines verifier behavior and reliance boundaries.
+- [RFC 0004: Decision-Evidence Lifecycle Semantics](rfcs/0004-decision-evidence-lifecycle-semantics.md) defines decision-evidence lifecycle semantics.
+
 ## Governance Proposal
 
 The repository is currently under initial editorial maintenance by Cognous as a public discussion draft, with the stated goal of transitioning to neutral standards governance if the effort gains external participation and sufficient implementation interest.
