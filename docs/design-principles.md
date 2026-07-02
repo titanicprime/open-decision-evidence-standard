@@ -6,13 +6,13 @@
 
 **Implications:** The format should support commitments, references, attestations, and selective disclosure patterns rather than assuming a full evidence payload is exported.
 
-## 2. Supports verification without blind trust in the issuer
+## 2. Coordinates, not conclusions
 
-**Rationale:** A relying party needs more than an issuer's assertion that a decision was valid.
+**Rationale:** A relying party needs structured governance coordinates for evaluation, but should not be forced into the issuer's conclusion.
 
-**Implications:** The record should support integrity checks, issuer identification, key references, freshness checks, and revocation or supersession indicators that can be evaluated independently.
+**Implications:** The record should support issuer identification, integrity checks, verification metadata, freshness checks, and other coordinates that another party can evaluate under its own rules.
 
-## 3. Portable across organizational boundaries
+## 3. Portable across boundaries
 
 **Rationale:** The format should remain useful when the relying party does not share systems, workflows, or operating assumptions with the issuer.
 
@@ -36,7 +36,13 @@
 
 **Implications:** The record should capture authority basis and validity windows, and verifiers should be able to consider time-bound authority when determining whether reliance is appropriate.
 
-## 7. Fail closed
+## 7. Freshness and revocation are first-class
+
+**Rationale:** A record may become stale, expired, superseded, revoked, or require revalidation as evidence, policy, or authority changes over time.
+
+**Implications:** Freshness, expiration, supersession, revocation, and revalidation should be explicit record semantics rather than implied by surrounding systems.
+
+## 8. Fail closed where required conditions are missing
 
 **Rationale:** Missing or contradictory conditions should not silently result in a positive reliance outcome.
 

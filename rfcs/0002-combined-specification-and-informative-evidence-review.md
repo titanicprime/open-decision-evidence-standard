@@ -26,6 +26,10 @@ Part II is informative only and defines no requirements.
 
 The current machine-readable schema remains `pder-v0.1`. The v0.2 narrative expands explanatory specification text and related-work analysis but does not introduce a schema-breaking update.
 
+## Messaging note
+
+ODES treats AI-influenced decisions as governed artifacts rather than bare outcomes. The proposed record is a decision-evidence container: coordinates, not conclusions. It carries structured governance metadata across boundaries without requiring shared infrastructure, proprietary trust networks, or disclosure of confidential source data.
+
 ## Boundary Blindness attribution
 
 Alexander D. Barrett’s July 2026 paper, Boundary Blindness Under Artificial Intelligence, is foundational related work for this draft. It independently articulates the cross-boundary decision-evidence gap and frames AI as an amplifier of a pre-existing structural failure rather than as the original cause. ODES should be read as one candidate standards-layer response to that diagnosis. No endorsement, affiliation, or relationship is implied.

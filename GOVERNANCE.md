@@ -38,3 +38,33 @@ Technical decisions should be evaluated on whether they improve openness, portab
 ## Commercial implementation separation
 
 Commercial software may implement, verify, route, or govern records defined by this repository, but commercial implementation architecture is outside the scope of this draft. Repository content should describe the open record format, not proprietary platform design.
+
+The open standard should define the portable decision-evidence record. It should not make any commercial implementation the standard itself.
+
+### Open standard materials
+
+Open materials in this repository may include:
+
+- record format;
+- schema;
+- vocabulary;
+- field documentation;
+- examples;
+- conformance concepts;
+- verifier concepts;
+- profiles; and
+- test vectors, where appropriate.
+
+### Commercial or implementation-specific materials
+
+Commercial or implementation-specific systems may include:
+
+- record generation infrastructure;
+- verifier services;
+- workflow routing;
+- evidence stores;
+- policy engines;
+- audit rooms;
+- regulatory response workflows;
+- enterprise integrations; and
+- Cognous-specific control-plane implementation.
