@@ -3,6 +3,7 @@
 ## Current status
 
 This repository is maintained as a public discussion draft for the Open Decision Evidence Standard. The current draft version is v0.1 and should be treated as a candidate standard under active review rather than a settled specification.
+The current narrative draft is v0.2, while the current machine-readable schema remains `pder-v0.1`.
 
 ## Maintainer role
 
