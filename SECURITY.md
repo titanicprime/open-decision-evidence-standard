@@ -15,8 +15,6 @@ In scope are concerns such as:
 - privacy leakage
 - malicious conformance claims
 
-Security contact: TO_BE_REPLACED_BEFORE_BROAD_RELEASE
+Security contact: andredelima@cogno.us
 
-This placeholder must be replaced with a monitored security reporting channel before broad public circulation.
-
-Please include a concise description of the issue, affected files or record elements, potential impact, and any suggested mitigation.
+Security reports sent to this address should include a concise description of the issue, affected files or record elements, potential impact, and any suggested mitigation.

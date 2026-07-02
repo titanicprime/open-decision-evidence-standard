@@ -56,7 +56,7 @@ Internal governance remains necessary, but internal governance alone is not enou
 ## Core Design Principles
 
 1. **Record, not copy**
-2. **Verifiable without trusting the issuer**
+2. **Supports verification without blind trust in the issuer**
 3. **Portable across boundaries**
 4. **Human and machine roles must be distinguishable**
 5. **Model state matters**

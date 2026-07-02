@@ -6,7 +6,7 @@
 
 **Implications:** The format should support commitments, references, attestations, and selective disclosure patterns rather than assuming a full evidence payload is exported.
 
-## 2. Verifiable without trusting the issuer
+## 2. Supports verification without blind trust in the issuer
 
 **Rationale:** A relying party needs more than an issuer's assertion that a decision was valid.
 
