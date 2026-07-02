@@ -1,9 +1,9 @@
 # Open Decision Evidence Standard
 
 - **Status:** Discussion Draft v0.2 narrative; schema reference `pder-v0.1`
-- **Repository:** `open-decision-evidence-standard`
-- **Public project page:** https://opendecisionevidence.org
-- **Repository:** https://github.com/titanicprime/open-decision-evidence-standard
+- **Repository name:** `open-decision-evidence-standard`
+- **Public project page:** https://opendecisionevidence.org (pending publication)
+- **Repository URL:** https://github.com/titanicprime/open-decision-evidence-standard
 - **License:** Apache License 2.0
 - **Initial editorial maintainer:** Cognous, pending neutral governance transition
 - **Purpose:** Open, vendor-neutral record format for portable decision evidence in AI-mediated and cross-boundary decisions
@@ -179,9 +179,9 @@ Schema validation checks structure. It does not establish that the underlying de
 - Agentic AI operations
 - Regulatory response
 
-## Proposed v0.1 Scope
+## Current schema scope
 
-The v0.1 discussion draft is intentionally limited. It proposes:
+The current `pder-v0.1` schema scope is intentionally limited. It proposes:
 
 - a baseline JSON record structure;
 - a shared vocabulary for portable decision evidence;
@@ -254,11 +254,11 @@ Comments are especially welcome on record scope, field selection, conformance re
 
 This repository is a discussion draft for an open, vendor-neutral candidate decision evidence standard. It is not a product announcement, legal advice, compliance advice, certification, assurance, warranty, or representation that any record produced under the draft prevents misuse, fraud, error, regulatory failure, or harm.
 
-A schema-valid or profile-conforming record does not establish that the underlying decision is correct, lawful, complete, or suitable for reliance.
+A schema-valid or profile-conforming record does not establish that the underlying decision is correct, legal, complete, or suitable for reliance.
 
 This draft has not been recognized, approved, adopted, or endorsed by any regulator or standards body.
 
-No endorsement, affiliation, or relationship with any external researcher, standards body, regulator, or institution is implied unless expressly stated.
+No endorsement, affiliation, approval, sponsorship, or relationship with any external researcher, standards body, regulator, or institution is implied unless expressly stated.
 
 ## Suggested Citation
 
