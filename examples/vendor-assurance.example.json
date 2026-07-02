@@ -66,6 +66,6 @@
     "signature_type": "none",
     "issuer_key_reference": "none",
     "conformance_profile": "pder_v0_1_minimal",
-    "verifier_endpoint": "https://verify.issuer-example.invalid/pder"
+    "verifier_endpoint": "https://issuer.example.org/verifiers/pder/v0.1"
   }
 }

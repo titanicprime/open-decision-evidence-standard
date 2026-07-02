@@ -71,6 +71,6 @@
     "signature_type": "x509-cms",
     "issuer_key_reference": "claims-pki-leaf-2026",
     "conformance_profile": "pder_v0_1_minimal",
-    "verifier_endpoint": "https://verify.issuer-example.invalid/pder"
+    "verifier_endpoint": "https://issuer.example.org/verifiers/pder/v0.1"
   }
 }
