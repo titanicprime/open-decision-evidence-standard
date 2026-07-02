@@ -61,7 +61,7 @@ The intended role of ODES is to help decision-level evidence travel across organ
 
 A decision evidence format intended for cross-boundary use should not require trust in a single vendor or operator. Openness matters because relying parties need to inspect the format, implement it independently, test it publicly, and use it without joining a proprietary control plane.
 
-An open standard also helps preserve a clean distinction between the public record format and any commercial products that may later produce, verify, route, or govern records built on top of it.
+An open candidate standard also helps preserve a clean distinction between the public record format and any commercial products that may later produce, verify, route, or govern records built on top of it.
 
 ## Background
 
@@ -218,9 +218,9 @@ The repository is currently under initial editorial maintenance by Cognous as a 
 
 See [`GOVERNANCE.md`](GOVERNANCE.md) for the current draft governance approach.
 
-## What Would Validate the Standard
+## What Would Strengthen the Draft
 
-The standard would be strengthened by evidence that independent parties can implement it, exchange records across boundaries, validate records consistently, and use it without disclosing unnecessary confidential data.
+The draft would be strengthened by evidence that independent parties can implement it, exchange records across boundaries, validate records consistently, and use it without disclosing unnecessary confidential data.
 
 Signs of validation would include public review, independent prototypes, comments from regulated sectors, cross-organizational testing, and convergence on useful conformance profiles.
 

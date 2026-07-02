@@ -2,8 +2,8 @@
 
 ## Current status
 
-This repository is maintained as a public discussion draft for the Open Decision Evidence Standard. The current draft version is v0.1 and should be treated as a candidate standard under active review rather than a settled specification.
-The current narrative draft is v0.2, while the current machine-readable schema remains `pder-v0.1`.
+This repository is maintained as a public discussion draft for the Open Decision Evidence Standard. The current narrative draft is v0.2, while the current machine-readable schema remains `pder-v0.1`.
+Both should be treated as candidate-standard materials under active review rather than settled specifications.
 
 ## Maintainer role
 
@@ -37,4 +37,4 @@ Technical decisions should be evaluated on whether they improve openness, portab
 
 ## Commercial implementation separation
 
-Commercial software may implement, verify, route, or govern records defined by this repository, but commercial implementation architecture is outside the scope of the standard. Repository content should describe the open record format, not proprietary platform design.
+Commercial software may implement, verify, route, or govern records defined by this repository, but commercial implementation architecture is outside the scope of this draft. Repository content should describe the open record format, not proprietary platform design.
