@@ -66,15 +66,27 @@ This is not:
 
 ODES records structured evidence about how a decision was represented as having been made. It does not prove that the decision was correct, lawful, complete, fair, or suitable for reliance.
 
-## ODES as the missing interoperability primitive
+## ODES as the cross-boundary decision-evidence layer
 
-ODES formalizes a portable governance object that current AI governance, AIBOM, model documentation, provenance, and audit systems generally do not center as their primary unit of interoperability: the decision-evidence record.
+ODES formalizes a portable governance object that current AI governance, AIBOM, model documentation, provenance, audit, and decision-memory systems generally do not center as their primary unit of cross-boundary interoperability: the decision-evidence record.
 
 AIBOMs describe what the AI system is: its components, dependencies, lineage, lifecycle context, and supply-chain properties. ODES describes what the AI-influenced decision was: who or what participated, under what authority, with what human disposition, under what model state, against what evidence and policy basis, and under what consumption conditions.
 
 ODES does not replace the adjacent stack. It gives those systems a decision-level object to emit or consume at the boundary.
 
 The intended role of ODES is to help decision-level evidence travel across organizational, system, and jurisdictional boundaries without forcing counterparties into the same platform, proprietary trust network, or shared infrastructure, and without requiring disclosure of underlying confidential data.
+
+### Adjacent work
+
+ODES is adjacent to, but distinct from, other open efforts around decision records, legal evidence, and workflow automation.
+
+- **Operational Decision Standard (ODS)** focuses on institutional decision memory: recording, verifying, governing, and learning from organizational decisions over time. ODES focuses on cross-boundary decision-evidence portability: the record that travels with or alongside an AI-influenced decision so another party can evaluate it under its own rules.
+
+- **Open Evidence Standard (OES)** focuses on structured, verifiable legal evidence extracted from documents, audio, and video. ODES may reference evidence commitments or evidence packages, but its unit of interoperability is the decision-evidence record, not the extracted evidence item.
+
+- **Open Decision** is an open-source no-code workflow automation platform for recurring legal requests. ODES is not a workflow automation platform; it is a portable record format.
+
+The ODES claim is intentionally narrow: decisions travel, evidence usually does not. ODES defines a portable decision-evidence record for that missing cross-boundary layer. See [Related and Adjacent Work](docs/related-work.md) for a longer comparison.
 
 ## Why This Should Be Open
 
